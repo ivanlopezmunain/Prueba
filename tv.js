@@ -1,7 +1,7 @@
 (function() {
     // Create the connector object
     var myConnector = tableau.makeConnector();
-    var num_pages = 2;
+    var num_pages = 3;
 
     var api_key = "8922bff85ef645a09730d7c1836c3edf",
         base_uri = "https://api.themoviedb.org/3/",
@@ -11,7 +11,7 @@
     myConnector.getSchema = function(schemaCallback) {
         var cols = [
             //{ id: "prueba", dataType: tableau.dataTypeEnum.int } ,
-            { id: "popularity", dataType: tableau.dataTypeEnum.float }/*,
+            { id: "popularity", dataType: tableau.dataTypeEnum.int }/*,
             { id: "id", dataType: tableau.dataTypeEnum.int },
             { id: "backdrop_path", dataType: tableau.dataTypeEnum.string },
             { id: "vote_average", dataType: tableau.dataTypeEnum.float },
@@ -61,11 +61,11 @@
                 success: function(data) {
                     var toRet = [];
                     
-                    if (data.valores_rango_fechas_sensor) {
-                        _.each(data.valores_rango_fechas_sensor, function(record) {               
+                    if (data.resultado) {
+                        //_.each(data.valores_rango_fechas_sensor, function(record) {               
                             entry = {
                                 //"prueba": record.numero_tuplas_valores ,
-                                "popularity": record.numero_tuplas_valores /*,
+                                "popularity": data.resultado /*,
                                 "id": record.id,
                                 "backdrop_path": images_uri + record.backdrop_path,
                                 "vote_average": record.vote_average,
@@ -79,7 +79,7 @@
                             };
 
                             toRet.push(entry)
-                        });
+                        //});
 
                         table.appendRows(toRet);
                         resolve();
