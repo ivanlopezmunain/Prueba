@@ -44,28 +44,27 @@
             success: function(data) {
                 var toRet = [];
 
-                if (data.results) {
-                    _.each(data.tuplas_horas_valores, function(record) {               
-                        entry = {
-                            "hora": record.hora /*,
-                            "popularity": record.popularity,
-                            "id": record.id,
-                            "backdrop_path": images_uri + record.backdrop_path,
-                            "vote_average": record.vote_average,
-                            "overview": record.overview,
-                            "first_air_date": record.first_air_date,
-                            "origin_country": record.origin_country[0] || null,
-                            "original_language": record.original_language,
-                            "vote_count": record.vote_count,
-                            "name": record.name,
-                            "original_name": record.original_name */
-                        };
+                _.each(data.tuplas_horas_valores, function(record) {               
+                    entry = {
+                        "hora": record.hora /*,
+                        "popularity": record.popularity,
+                        "id": record.id,
+                        "backdrop_path": images_uri + record.backdrop_path,
+                        "vote_average": record.vote_average,
+                        "overview": record.overview,
+                        "first_air_date": record.first_air_date,
+                        "origin_country": record.origin_country[0] || null,
+                        "original_language": record.original_language,
+                        "vote_count": record.vote_count,
+                        "name": record.name,
+                        "original_name": record.original_name */
+                    };
 
-                        toRet.push(entry)
-                    });
+                    toRet.push(entry)
+                });
 
-                    table.appendRows(toRet);
-                    doneCallback();
+                table.appendRows(toRet);
+                doneCallback();
                     //resolve();
         
         /*
