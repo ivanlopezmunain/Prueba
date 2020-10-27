@@ -11,7 +11,7 @@
     myConnector.getSchema = function(schemaCallback) {
         var cols = [
             //{ id: "prueba", dataType: tableau.dataTypeEnum.int } ,
-            { id: "popu", dataType: tableau.dataTypeEnum.string }/*,
+            { id: "pop", dataType: tableau.dataTypeEnum.int }/*,
             { id: "id", dataType: tableau.dataTypeEnum.int },
             { id: "backdrop_path", dataType: tableau.dataTypeEnum.string },
             { id: "vote_average", dataType: tableau.dataTypeEnum.float },
@@ -53,8 +53,8 @@
 
     function getResultsPromise(table, pageNum) {
         return new Promise(function(resolve, reject) {
-            //var connectionUrl = base_uri + "tv/popular?api_key=" + api_key + "&page=" + pageNum;
-            var connectionUrl = "https://emios001.energy-minus.es/src/api/dame_valores_rango_fechas_sensor.php?usuario=redefinetika&contrasenya=3e1738fc5f114ed9234b9e02a2146a16&id_sensor=6415&intervalo_valores=cuartohora&fecha_hora_inicio=01-09-2020_17:00:00&fecha_hora_fin=01-09-2020_18:00:00&id_red=117"
+            var connectionUrl = base_uri + "tv/popular?api_key=" + api_key + "&page=" + pageNum;
+            //var connectionUrl = "https://emios001.energy-minus.es/src/api/dame_valores_rango_fechas_sensor.php?usuario=redefinetika&contrasenya=3e1738fc5f114ed9234b9e02a2146a16&id_sensor=6415&intervalo_valores=cuartohora&fecha_hora_inicio=01-09-2020_17:00:00&fecha_hora_fin=01-09-2020_18:00:00&id_red=117"
             var xhr = $.ajax({
                 url: connectionUrl,
                 dataType: 'json',
@@ -62,10 +62,10 @@
                     var toRet = [];
                     
                     if (data.resultado) {
-                        //_.each(data.valores_rango_fechas_sensor, function(record) {               
+                        _.each(data.valores_rango_fechas_sensor, function(record) {               
                             entry = {
                                 //"prueba": record.numero_tuplas_valores ,
-                                "popu": JSON.parse(data)["resultado"] /*,
+                                "pop": record.popularity /*,
                                 "id": record.id,
                                 "backdrop_path": images_uri + record.backdrop_path,
                                 "vote_average": record.vote_average,
@@ -79,7 +79,7 @@
                             };
 
                             toRet.push(entry)
-                        //});
+                        });
 
                         table.appendRows(toRet);
                         resolve();
