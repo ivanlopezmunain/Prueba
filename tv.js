@@ -1,4 +1,4 @@
-/*
+
 (function() {
     // Create the connector object
     var myConnector = tableau.makeConnector();
@@ -104,7 +104,7 @@
         });
     });
 })();
-*/
+/*
 
 
 (function () {
@@ -122,10 +122,10 @@
         id: "title",
         alias: "title",
         dataType: tableau.dataTypeEnum.string
-    } /*, {
+    } , {
         id: "location",
         dataType: tableau.dataTypeEnum.geometry
-    }*/];
+    }];
 
     var tableSchema = {
         id: "earthquakeFeed",
@@ -146,8 +146,8 @@ myConnector.getData = function(table, doneCallback) {
             tableData.push({
                 "id": feat[i].id,
                 "mag": feat[i].properties.mag,
-                "title": feat[i].properties.title //,
-                //"location": feat[i].geometry
+                "title": feat[i].properties.title ,
+                "location": feat[i].geometry
             });
         }
 
@@ -165,3 +165,4 @@ myConnector.getData = function(table, doneCallback) {
     });
 });
 })();
+*/
