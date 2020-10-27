@@ -10,7 +10,7 @@
     // Define the schema
     myConnector.getSchema = function(schemaCallback) {
         var cols = [
-            { id: "hora", dataType: tableau.dataTypeEnum.string } /*,
+            { id: "hora", dataType: tableau.dataTypeEnum.datetime } /*,
             { id: "popularity", dataType: tableau.dataTypeEnum.float },
             { id: "id", dataType: tableau.dataTypeEnum.int },
             { id: "backdrop_path", dataType: tableau.dataTypeEnum.string },
@@ -63,6 +63,7 @@
                     var toRet = [];
                     
                     if (data.resultado=="OK") {
+                        /*
                         _.each(data.tuplas_horas_valores, function(record) {               
                             entry = {
                                 "hora": record.hora /*,
@@ -76,14 +77,24 @@
                                 "original_language": record.original_language,
                                 "vote_count": record.vote_count,
                                 "name": record.name,
-                                "original_name": record.original_name */
+                                "original_name": record.original_name 
                             };
 
                             toRet.push(entry)
                         });
+                        */
+                        var feat = data.tuplas_horas_valores,
+                        tableData = [];
 
+                        // Iterate over the JSON object
+                        for (var i = 0, len = feat.length; i < len; i++) {
+                            tableData.push({
+                                "hora" : feat[i].hora
+                            });
+                        }
                         table.appendRows(toRet);
                         resolve();
+                        
                     } else {
                         Promise.reject("No results found for ticker symbol: " + ticker);
                     }
