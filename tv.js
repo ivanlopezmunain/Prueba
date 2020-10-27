@@ -57,13 +57,15 @@
             var connectionUrl1 = "https://emios001.energy-minus.es/src/api/dame_valores_rango_fechas_sensor.php?usuario=redefinetika&contrasenya=3e1738fc5f114ed9234b9e02a2146a16&id_sensor=6415&intervalo_valores=cuartohora&fecha_hora_inicio=01-09-2020_17:00:00&fecha_hora_fin=01-09-2020_18:00:00&id_red=117"
             
             let url = connectionUrl1;
-
+            
+            /*
             fetch(url)
             .then(res => res.json())
             .then((out1 => {
               console.log('Checkout this JSON! ', out1;
             })
             .catch(err => { throw err });
+            */
             
             var xhr = $.ajax({
                 url: connectionUrl,
@@ -75,7 +77,7 @@
                         _.each(data.results, function(record) {               
                             entry = {
                                 //"prueba": record.numero_tuplas_valores ,
-                                "popu": out1.resultado   /*,
+                                "popu": "ajaj"   /*,
                                 "id": record.id,
                                 "backdrop_path": images_uri + record.backdrop_path,
                                 "vote_average": record.vote_average,
