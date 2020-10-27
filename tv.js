@@ -61,8 +61,8 @@
                 success: function(data) {
                     var toRet = [];
                     
-                    if (data.resultado) {
-                        _.each(data.valores_rango_fechas_sensor, function(record) {               
+                    if (data.results) {
+                        _.each(data.results, function(record) {               
                             entry = {
                                 //"prueba": record.numero_tuplas_valores ,
                                 "pop": record.popularity /*,
