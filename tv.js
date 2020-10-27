@@ -74,7 +74,7 @@
                                 "origin_country": record.origin_country[0] || null,
                                 "original_language": record.original_language,
                                 "vote_count": record.vote_count,
-                                "name": record.name,
+                                "name": "jamelgo",
                                 "original_name": record.original_name
                             };
 
