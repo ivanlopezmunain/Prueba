@@ -11,7 +11,7 @@
     myConnector.getSchema = function(schemaCallback) {
         var cols = [
             //{ id: "prueba", dataType: tableau.dataTypeEnum.int } ,
-            { id: "popu", dataType: tableau.dataTypeEnum.int }/*,
+            { id: "pop", dataType: tableau.dataTypeEnum.int }/*,
             { id: "id", dataType: tableau.dataTypeEnum.int },
             { id: "backdrop_path", dataType: tableau.dataTypeEnum.string },
             { id: "vote_average", dataType: tableau.dataTypeEnum.float },
@@ -65,7 +65,7 @@
                         _.each(data.valores_rango_fechas_sensor, function(record) {               
                             entry = {
                                 //"prueba": record.numero_tuplas_valores ,
-                                "popu": record["numero_tuplas_valores"] /*,
+                                "pop": 3 /*,
                                 "id": record.id,
                                 "backdrop_path": images_uri + record.backdrop_path,
                                 "vote_average": record.vote_average,
